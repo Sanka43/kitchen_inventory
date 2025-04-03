@@ -60,20 +60,21 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               // Login Box
               Container(
-                padding: EdgeInsets.all(25),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(20),
-                ),
+                // padding: EdgeInsets.all(25),
+                // decoration: BoxDecoration(
+                //   color: Colors.white.withOpacity(0),
+                //   borderRadius: BorderRadius.circular(20),
+                // ),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text("Welcome Back!",
+                    Text("Smart Kitchen World",
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Form(
                       key: _formKey,
                       child: Column(
@@ -82,7 +83,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             controller: _usernameController,
                             decoration: InputDecoration(
                               labelText: "Username",
-                              labelStyle: TextStyle(color: Colors.white),
+                              labelStyle: TextStyle(
+                                color: Colors.white,
+                              ),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10)),
                               filled: true,
@@ -139,10 +142,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 12),
-                              backgroundColor: Colors.green,
+                                  horizontal: 50, vertical: 10),
+                              backgroundColor:
+                                  const Color.fromARGB(179, 51, 255, 0)
+                                      .withOpacity(0.7),
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
+                                  borderRadius: BorderRadius.circular(50)),
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
@@ -154,8 +159,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                             DashboardScreen()));
                               }
                             },
-                            child:
-                                Text("Login", style: TextStyle(fontSize: 16)),
+                            child: Text("Login",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  shadows: [
+                                    Shadow(
+                                        color:
+                                            const Color.fromARGB(255, 0, 0, 0),
+                                        offset: Offset(2, 2),
+                                        blurRadius: 5),
+                                  ],
+                                )),
                           ),
                         ],
                       ),
@@ -196,15 +211,17 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               // App Title
               Text(
-                "Smart Kitchen World", // add \n to break line
+                "Smart Kitchen\nWorld", // add \n to break line
+                textAlign: TextAlign.center, // Ensures text is centered
                 style: TextStyle(
-                  fontSize: 46,
+                  fontFamily: "cursive",
+                  fontSize: 56,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                   shadows: [
                     Shadow(
-                        color: Colors.black54,
-                        offset: Offset(2, 2),
+                        color: Colors.black87,
+                        offset: Offset(5, 5),
                         blurRadius: 5),
                   ],
                 ),
@@ -214,14 +231,24 @@ class _LoginScreenState extends State<LoginScreen> {
               // Login Button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  backgroundColor: Colors.white.withOpacity(0.3),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  backgroundColor:
+                      const Color.fromARGB(255, 0, 0, 0).withOpacity(0.7),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(50)),
                 ),
                 onPressed: () => _showLoginPopup(context),
                 child: Text("Login",
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                            color: Colors.black87,
+                            offset: Offset(2, 2),
+                            blurRadius: 5),
+                      ],
+                    )),
               ),
             ],
           ),
