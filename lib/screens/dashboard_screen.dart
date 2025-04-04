@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
 
 class DashboardScreen extends StatelessWidget {
   final List<Map<String, dynamic>> stockItems = [
@@ -65,8 +64,7 @@ class DashboardScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
-            color: Colors.blue),
+        color: Colors.blue, // Set the solid color background (blue here)
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,40 +127,37 @@ class DashboardScreen extends StatelessWidget {
       margin: EdgeInsets.only(right: 10),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20), // Rounding corners
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2), // Transparent background
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 8,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-            child: InkWell(
-              onTap: () {},
-              borderRadius: BorderRadius.circular(20),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(icon, size: 50, color: color),
-                    SizedBox(height: 10),
-                    Text(title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                  ],
-                ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.2), // Transparent background
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 8,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(20),
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon, size: 50, color: color),
+                  SizedBox(height: 10),
+                  Text(title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white)),
+                ],
               ),
             ),
           ),
@@ -184,72 +179,69 @@ class DashboardScreen extends StatelessWidget {
       margin: EdgeInsets.only(right: 10),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2), // Transparent background
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 8,
-                  offset: Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(12),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(item["name"],
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  SizedBox(height: 5),
-                  Container(
-                    width: 20,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    alignment: Alignment.bottomCenter,
-                    child: FractionallySizedBox(
-                      heightFactor: percentage,
-                      child: Container(
-                        height: 200,
-                        decoration: BoxDecoration(
-                          color: progressColor,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.5), // Transparent background
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 8,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(item["name"],
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                SizedBox(height: 5),
+                Container(
+                  width: 20,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  alignment: Alignment.bottomCenter,
+                  child: FractionallySizedBox(
+                    heightFactor: percentage,
+                    child: Container(
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: progressColor,
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(" ${item["stock"]} / ${item["maxStock"]}",
-                      style: TextStyle(color: Colors.white)),
-                  if (percentage < 0.2)
-                    Padding(
-                      padding: EdgeInsets.only(top: 8),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          _showOrderDialog(context, item["name"]);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                        ),
-                        child: Text("Order Now"),
+                ),
+                SizedBox(height: 5),
+                Text(" ${item["stock"]} / ${item["maxStock"]}",
+                    style: TextStyle(color: Colors.white)),
+                if (percentage < 0.2)
+                  Padding(
+                    padding: EdgeInsets.only(top: 8),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _showOrderDialog(context, item["name"]);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
                       ),
+                      child: Text("Order Now"),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ),
         ),
