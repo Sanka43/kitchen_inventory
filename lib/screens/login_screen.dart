@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: EdgeInsets.symmetric(
                                   horizontal: 50, vertical: 10),
                               backgroundColor:
-                                  const Color.fromARGB(179, 51, 255, 0)
+                                  const Color.fromARGB(96, 17, 117, 4)
                                       .withOpacity(0.7),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
