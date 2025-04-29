@@ -7,7 +7,7 @@ class DashboardScreen extends StatelessWidget {
     {"name": "Onions", "stock": 30, "maxStock": 100},
     {
       "name": "Milk",
-      "stock": 10,
+      "stock": 2,
       "maxStock": 50
     }, // LOW STOCK (Shows Order Button)
     {
@@ -16,6 +16,8 @@ class DashboardScreen extends StatelessWidget {
       "maxStock": 30
     }, // LOW STOCK (Shows Order Button)
   ];
+
+  DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,8 @@ class DashboardScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: Colors.blue, // Set the solid color background (blue here)
+        color: const Color.fromARGB(
+            255, 226, 226, 226), // Set the solid color background (blue here)
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
