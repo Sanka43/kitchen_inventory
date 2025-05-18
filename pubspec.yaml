@@ -22,6 +22,8 @@ dependencies:
   path_provider: ^2.0.11  # Get local file paths
 
   cupertino_icons: ^1.0.8
+  fl_chart: ^1.0.0
+  step_progress_indicator: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -32,5 +34,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/background.jpg
+    - assets/dashboard_backgraund_2.jpg
+    - assets/dashboard_backgraund_2.jpg
 
   uses-material-design: true

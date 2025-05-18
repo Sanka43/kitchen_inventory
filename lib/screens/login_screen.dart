@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // Load saved credentials
-  Future<void> _loadSavedCredentials() async {
+_loadSavedCredentials() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _usernameController.text = prefs.getString('username') ?? "";
@@ -62,11 +62,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               // Login Box
               Container(
-                // padding: EdgeInsets.all(25),
-                // decoration: BoxDecoration(
-                //   color: Colors.white.withOpacity(0),
-                //   borderRadius: BorderRadius.circular(20),
-                // ),
+                padding: EdgeInsets.all(0),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   // mainAxisSize: MainAxisSize.min,
@@ -129,13 +129,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                     },
                                   ),
                                   Text("Remember Me",
-                                      style: TextStyle(color: Colors.white)),
+                                      style: TextStyle(
+                                        color: Colors.white, 
+                                        fontSize: 12)),
                                 ],
                               ),
                               TextButton(
                                 onPressed: () {},
                                 child: Text("Forgot Password?",
-                                    style: TextStyle(color: Colors.white)),
+                                    style: TextStyle(color: Colors.white,fontSize: 12)),
                               ),
                             ],
                           ),
@@ -219,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontFamily: "cursive",
                   fontSize: 56,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   shadows: [
                     Shadow(
                         color: Colors.black87,
